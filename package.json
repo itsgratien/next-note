@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "dev:server": "nodemon server/index.ts"
+    "lint": "next lint"
   },
   "dependencies": {
     "@graphql-tools/schema": "^8.1.1",
