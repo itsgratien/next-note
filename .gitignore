@@ -32,3 +32,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+#yarn.lock
+yarn.lock
+
+#.vscode
+.vscode
