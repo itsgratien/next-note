@@ -1,20 +1,25 @@
-import next from 'next'
-import express from 'express'
-import apolloServerSetup from './apollo'
+import { ApolloServer, gql } from 'apollo-server-micro'
+import { makeExecutableSchema } from '@graphql-tools/schema'
+import { NextApiRequest, NextApiResponse } from 'next'
 
-const dev = process.env.NODE_ENV !== 'production'
+export default async (req: NextApiRequest, res: NextApiResponse) => {
+  const typeDefs = gql`
+    type Query {
+      hello: String!
+    }
+  `
 
-const app = next({ dev })
+  const resolvers = {
+    Query: {
+      hello: () => 'hello world',
+    },
+  }
 
-const handler = app.getRequestHandler()
-
-app
-  .prepare()
-  .then(async () => {
-    const server = express()
-
-    await apolloServerSetup(server, handler)
+  const apolloServer = new ApolloServer({
+    schema: makeExecutableSchema({ typeDefs, resolvers }),
   })
-  .catch((e) => {
-    console.error(e)
-  })
+
+  await apolloServer.start()
+
+  apolloServer.createHandler({ path: '/api/graphql' })(req, res)
+}
