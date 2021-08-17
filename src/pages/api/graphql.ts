@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import apolloServer from 'server'
+import apolloServer from 'src/server'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader('Access-Control-Allow-Credentials', 'true')

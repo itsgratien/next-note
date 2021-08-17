@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import { NoteItem, Layout } from 'components'
+import { NoteItem, Layout } from 'src/components'
 
 const MyNotes: NextPage = () => {
   return (
