@@ -9,7 +9,7 @@ const Layout: FC = (props) => {
       <Head>
         <title>Next Note</title>
         <meta name="description" content="Group your information in note" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/vercel.svg" />
       </Head>
       {children}
     </>

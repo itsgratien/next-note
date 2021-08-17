@@ -1,7 +1,7 @@
 import React from 'react'
 import type { NextPage } from 'next'
-import { Layout } from 'components'
-import styles from 'styles/Home.module.scss'
+import { Layout } from 'src/components'
+import styles from 'src/styles/Home.module.scss'
 import { LogoGoogle } from 'react-ionicons'
 
 const Home: NextPage = () => {
