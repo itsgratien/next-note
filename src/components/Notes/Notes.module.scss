@@ -1,4 +1,15 @@
 .notes {
   width: 700px;
   margin: auto;
+  padding-bottom: 100px;
+  .itemColumn {
+    position: relative;
+    -webkit-column-width: 219px;
+    column-width: 219px;
+    -webkit-column-count: 3px;
+    -moz-column-count: 3px;
+    column-count: 3px;
+    -webkit-column-gap: 20px;
+    column-gap: 20px;
+  }
 }

@@ -16,7 +16,7 @@ const NoteItem = (props: Props) => {
   const { item } = props
   return (
     <div
-      className={classNames(styles.noteItem, 'relative border border-fc mt-10')}
+      className={classNames(styles.noteItem, 'border border-fc cursor-pointer')}
     >
       <div className="flex">
         <NewspaperOutline width="30px" height="30px" />
