@@ -1,12 +1,17 @@
 import React from 'react'
 import type { NextPage } from 'next'
-import { Layout } from 'src/components'
+import Head from 'next/head'
 import styles from 'src/styles/Home.module.scss'
 import { LogoGoogle } from 'react-ionicons'
 
 const Home: NextPage = () => {
   return (
-    <Layout>
+    <>
+      <Head>
+        <title>Next Note | Join</title>
+        <meta name="description" content="Group your information in note" />
+        <link rel="icon" href="/vercel.svg" />
+      </Head>
       <div
         className={`${styles.home} w-full h-screen relative flex items-center justify-center`}
       >
@@ -18,7 +23,7 @@ const Home: NextPage = () => {
           <span>Join using google</span>
         </button>
       </div>
-    </Layout>
+    </>
   )
 }
 

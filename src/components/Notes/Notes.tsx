@@ -5,7 +5,7 @@ import { NoteItem, Layout } from 'src/components'
 
 const Notes: NextPage = () => {
   return (
-    <Layout>
+    <Layout header footer>
       <div className={classNames(styles.notes)}>
         <div className={styles.itemColumn}>
           <NoteItem

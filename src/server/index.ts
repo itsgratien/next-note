@@ -1,14 +1,9 @@
-import { ApolloServer, gql } from 'apollo-server-micro'
+import { ApolloServer } from 'apollo-server-micro'
 import { makeExecutableSchema } from '@graphql-tools/schema'
 import { NextApiRequest, NextApiResponse } from 'next'
+import typeDefs from './schema'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const typeDefs = gql`
-    type Query {
-      hello: String!
-    }
-  `
-
   const resolvers = {
     Query: {
       hello: () => 'hello world',

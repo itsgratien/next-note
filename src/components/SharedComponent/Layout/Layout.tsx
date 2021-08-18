@@ -2,10 +2,15 @@ import React, { FC, useState } from 'react'
 import Head from 'next/head'
 import { Header, Footer, AddNote } from 'src/components'
 
-const Layout: FC = (props) => {
+interface Props {
+  header?: boolean
+  footer?: boolean
+}
+
+const Layout: FC<Props> = (props) => {
   const [openAddNote, setOpenAddNote] = useState<boolean>(false)
 
-  const { children } = props
+  const { children, header, footer } = props
 
   return (
     <>
@@ -15,14 +20,16 @@ const Layout: FC = (props) => {
         }
       `}</style>
       <Head>
-        <title>Next Note</title>
+        <title>Next Note | Dashboard</title>
         <meta name="description" content="Group your information in note" />
         <link rel="icon" href="/vercel.svg" />
       </Head>
-      <Header />
+      {header && <Header />}
       {openAddNote && <AddNote />}
       <main>{children}</main>
-      <Footer handleAddNote={setOpenAddNote} openAddNote={openAddNote} />
+      {footer && (
+        <Footer handleAddNote={setOpenAddNote} openAddNote={openAddNote} />
+      )}
     </>
   )
 }
