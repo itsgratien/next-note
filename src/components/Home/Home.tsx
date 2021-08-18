@@ -16,7 +16,12 @@ const Home: NextPage = () => {
     if (!res.code) {
       const successResponse = res as GoogleLoginResponse
 
-      console.log('res', successResponse.getAuthResponse())
+      console.log(
+        'access token',
+        successResponse.getAuthResponse().access_token
+      )
+
+      console.log('id token', successResponse.getAuthResponse().id_token)
 
       console.log('profile', successResponse.getBasicProfile().getEmail)
     }

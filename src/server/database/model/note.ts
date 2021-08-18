@@ -1,4 +1,4 @@
-import mongoose, { Document } from 'mongoose'
+import mongoose, { Document, Model } from 'mongoose'
 import { UserType } from './user'
 export interface NoteType extends Document {
   title: string
@@ -8,24 +8,27 @@ export interface NoteType extends Document {
   updatedAt: string
 }
 
-export default mongoose.model<NoteType>(
-  'Note',
-  new mongoose.Schema(
-    {
-      title: {
-        type: String,
-        required: true,
-      },
-      description: {
-        type: String,
-        required: true,
-      },
-      owner: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'User',
-      },
+const schema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
     },
-    { timestamps: true }
-  )
+    description: {
+      type: String,
+      required: true,
+    },
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'User',
+    },
+  },
+  { timestamps: true }
 )
+
+const model = (
+  mongoose.models.Note ? mongoose.models.Note : mongoose.model('Note', schema)
+) as Model<NoteType>
+
+export default model

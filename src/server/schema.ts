@@ -10,8 +10,10 @@ export default gql`
   }
   type User {
     _id: ID!
-    username: String!
+    email: String!
     profilePicture: String
+    createdAt: Date!
+    updatedAt: Date!
   }
 
   type Note {

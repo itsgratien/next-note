@@ -18,7 +18,7 @@ passport.use(
         if (!find) {
           const create = await UserModel.create({
             email: profile._json.email,
-            profilePicture: profile._json.profile,
+            profilePicture: profile._json.picture,
           })
 
           done(null, create)

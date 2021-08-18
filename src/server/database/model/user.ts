@@ -1,4 +1,4 @@
-import mongoose, { Document } from 'mongoose'
+import mongoose, { Document, Model } from 'mongoose'
 export interface UserType extends Document {
   email: string
   profilePicture?: string
@@ -20,6 +20,8 @@ const user = new mongoose.Schema(
   { timestamps: true }
 )
 
-const model = mongoose.model<UserType>('User', user)
+const model = (
+  mongoose.models.User ? mongoose.models.User : mongoose.model('User', user)
+) as Model<UserType>
 
 export default model

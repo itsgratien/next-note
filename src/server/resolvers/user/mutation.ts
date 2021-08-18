@@ -14,11 +14,11 @@ export default {
         access_token: googleToken,
       }
 
-      const d = await dataSource.passport(req, res)
+      const response: any = await dataSource.passport(req, res)
 
-      console.log('data', d)
       return {
         token: 'token',
+        user: response,
       }
     } catch (error) {
       throw new ApolloError('Unable to login due to internal server error')
