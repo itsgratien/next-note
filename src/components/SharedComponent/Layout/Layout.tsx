@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import Head from 'next/head'
+import { Header, Footer } from 'src/components'
 
 const Layout: FC = (props) => {
   const { children } = props
@@ -11,7 +12,9 @@ const Layout: FC = (props) => {
         <meta name="description" content="Group your information in note" />
         <link rel="icon" href="/vercel.svg" />
       </Head>
-      {children}
+      <Header />
+      <main>{children}</main>
+      <Footer />
     </>
   )
 }

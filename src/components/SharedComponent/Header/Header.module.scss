@@ -1,0 +1,29 @@
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 15px 100px;
+  width: 100%;
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+  .searchBar {
+    height: 50px;
+    border-radius: 10px;
+    padding: 0 10px 0 25px;
+    svg {
+      cursor: pointer;
+    }
+  }
+  .logout {
+    .logoutButton {
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.12);
+    }
+  }
+}

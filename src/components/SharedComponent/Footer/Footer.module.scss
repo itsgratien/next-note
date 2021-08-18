@@ -1,0 +1,14 @@
+.footer {
+  padding: 0 100px;
+  height: 100px;
+  .addButton {
+    padding-right: 0px;
+  }
+  .addNoteButton {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: -70px;
+  }
+}

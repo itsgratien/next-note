@@ -1,6 +1,7 @@
 import React from 'react'
 import { NewspaperOutline } from 'react-ionicons'
 import styles from './NoteItem.module.scss'
+import classNames from 'classnames'
 
 interface NoteItemType {
   _id: string
@@ -14,13 +15,15 @@ interface Props {
 const NoteItem = (props: Props) => {
   const { item } = props
   return (
-    <div className={`relative ${styles.noteItem}`}>
-      <div className="flex items-center">
-        <NewspaperOutline />
-        <span>{item.title}</span>
+    <div
+      className={classNames(styles.noteItem, 'relative border border-fc mt-10')}
+    >
+      <div className="flex">
+        <NewspaperOutline width="30px" height="30px" />
+        <span className={classNames('text-14 ml-2')}>{item.title}</span>
       </div>
-      <div>
-        <span>{item.description}</span>
+      <div className="mt-2">
+        <span className="text-14">{item.description}</span>
       </div>
     </div>
   )
