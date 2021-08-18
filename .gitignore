@@ -39,3 +39,6 @@ yarn.lock
 
 #.vscode
 .vscode
+
+#
+.env.local

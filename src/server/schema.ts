@@ -23,7 +23,13 @@ export default gql`
     updatedAt: Date!
   }
 
+  type LoginResponse {
+    token: String!
+    user: User
+  }
+
   type Mutation {
     addNote(title: String!, description: String!): Note!
+    login(googleToken: String!): LoginResponse
   }
 `
