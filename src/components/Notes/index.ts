@@ -1,4 +1,5 @@
 import Notes from './Notes'
 
-export * from './NoteItem'
 export { Notes }
+export * from './NoteItem'
+export * from './AddNote'

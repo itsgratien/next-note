@@ -1,8 +1,10 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import Head from 'next/head'
-import { Header, Footer } from 'src/components'
+import { Header, Footer, AddNote } from 'src/components'
 
 const Layout: FC = (props) => {
+  const [openAddNote, setOpenAddNote] = useState<boolean>(false)
+
   const { children } = props
 
   return (
@@ -13,8 +15,9 @@ const Layout: FC = (props) => {
         <link rel="icon" href="/vercel.svg" />
       </Head>
       <Header />
+      {openAddNote && <AddNote />}
       <main>{children}</main>
-      <Footer />
+      <Footer handleAddNote={setOpenAddNote} openAddNote={openAddNote} />
     </>
   )
 }

@@ -1,11 +1,16 @@
 import React from 'react'
 import styles from './Footer.module.scss'
 import classnames from 'classnames'
-import { ArrowForwardOutline, Add } from 'react-ionicons'
+import { ArrowForwardOutline, Add, Close } from 'react-ionicons'
 
-interface Props {}
+interface Props {
+  handleAddNote: (value: boolean) => void
+  openAddNote: boolean
+}
 
 const Footer = (props: Props) => {
+  const { handleAddNote, openAddNote } = props
+
   return (
     <footer
       className={classnames(
@@ -26,8 +31,13 @@ const Footer = (props: Props) => {
             styles.addNoteButton,
             'top-0 bg-black flex items-center justify-center'
           )}
+          onClick={() => handleAddNote(!openAddNote)}
         >
-          <Add color="white" width="40px" height="40px" />
+          {openAddNote ? (
+            <Close color="white" width="40px" height="40px" />
+          ) : (
+            <Add color="white" width="40px" height="40px" />
+          )}
         </button>
       </div>
     </footer>
