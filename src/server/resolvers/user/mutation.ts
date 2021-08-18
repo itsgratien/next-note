@@ -17,7 +17,7 @@ export default {
       const response: any = await dataSource.passport(req, res)
 
       return {
-        token: 'token',
+        token: dataSource.generate.generateBearerToken({ _id: response._id }),
         user: response,
       }
     } catch (error) {
