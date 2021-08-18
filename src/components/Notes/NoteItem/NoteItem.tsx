@@ -1,6 +1,7 @@
 import React from 'react'
-import { NewspaperOutline } from 'react-ionicons'
 import styles from './NoteItem.module.scss'
+import { NewspaperOutline } from 'react-ionicons'
+import { useRouter } from 'next/router'
 import classNames from 'classnames'
 
 interface NoteItemType {
@@ -14,9 +15,15 @@ interface Props {
 
 const NoteItem = (props: Props) => {
   const { item } = props
+
+  const route = useRouter()
+
+  const handleViewSingleNote = () => route.push('/')
+
   return (
     <div
       className={classNames(styles.noteItem, 'border border-fc cursor-pointer')}
+      onClick={handleViewSingleNote}
     >
       <div className="flex">
         <NewspaperOutline width="30px" height="30px" />

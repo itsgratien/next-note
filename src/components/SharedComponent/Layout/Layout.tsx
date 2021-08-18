@@ -9,6 +9,11 @@ const Layout: FC = (props) => {
 
   return (
     <>
+      <style jsx>{`
+        main {
+          padding-top: 100px;
+        }
+      `}</style>
       <Head>
         <title>Next Note</title>
         <meta name="description" content="Group your information in note" />

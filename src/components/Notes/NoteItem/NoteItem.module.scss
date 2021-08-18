@@ -4,4 +4,7 @@
   padding: 15px 10px;
   margin: 10px 0;
   display: inline-block;
+  &:hover {
+    box-shadow: 0px 5px 10px 0px #64647724;
+  }
 }
