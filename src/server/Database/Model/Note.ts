@@ -1,5 +1,5 @@
 import mongoose, { Document, Model } from 'mongoose'
-import { UserType } from './user'
+import { UserType } from './User'
 export interface NoteType extends Document {
   title: string
   description: string

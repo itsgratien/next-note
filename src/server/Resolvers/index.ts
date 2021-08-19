@@ -1,5 +1,5 @@
-import { UserMutation, UserQuery } from './user'
-import { NoteMutation, NoteQuery } from './note'
+import { UserMutation, UserQuery } from './User'
+import { NoteMutation, NoteQuery } from './Note'
 
 export default {
   Query: {

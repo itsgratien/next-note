@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import { environment } from 'src/environment'
+import { environment } from 'src/utils'
 
 interface Payload {
   [key: string]: string

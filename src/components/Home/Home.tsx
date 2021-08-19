@@ -7,7 +7,7 @@ import GoogleLogin, {
   GoogleLoginResponse,
   GoogleLoginResponseOffline,
 } from 'react-google-login'
-import { environment } from 'src/environment'
+import { environment } from 'src/utils'
 
 const Home: NextPage = () => {
   const handleOnSuccessGoogleLogin = (

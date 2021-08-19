@@ -1,5 +1,5 @@
-import passport from './passport'
-import generate from './generate'
+import passport from './Passport'
+import generate from './Generate'
 
 const dataSources = {
   passport,

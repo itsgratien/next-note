@@ -2,8 +2,8 @@ import { ApolloServer } from 'apollo-server-micro'
 import { makeExecutableSchema } from '@graphql-tools/schema'
 import { NextApiRequest, NextApiResponse } from 'next'
 import typeDefs from './schema'
-import resolvers from './resolvers'
-import { connectDb } from './database/connect'
+import resolvers from './Resolvers'
+import { connectDb } from './Database/connect'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const apolloServer = new ApolloServer({

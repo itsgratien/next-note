@@ -1,7 +1,7 @@
 import passport from 'passport'
 import passportGoogle from 'passport-google-oauth-token'
-import { environment } from 'src/environment'
-import UserModel from 'src/server/database/model/user'
+import { environment } from 'src/utils'
+import { UserModel } from 'src/server/Database'
 
 const GoogleStrategy = passportGoogle
 

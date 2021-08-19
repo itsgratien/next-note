@@ -1,5 +1,5 @@
 import { ApolloError } from 'apollo-server-micro'
-import dataSource from 'src/server/datasource'
+import dataSource from 'src/server/Datasource'
 import { LoginArgs, Context } from './types'
 
 export default {
