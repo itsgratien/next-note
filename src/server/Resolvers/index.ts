@@ -12,3 +12,6 @@ export default {
     ...UserMutation,
   },
 }
+
+export * from './Note'
+export * from './User'

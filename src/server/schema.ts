@@ -2,12 +2,7 @@ import { gql } from 'apollo-server-micro'
 
 export default gql`
   scalar Date
-  type Query {
-    hello: String!
-    me: User!
-    getNotes: [Note!]!
-    getSingleNote: Note!
-  }
+
   type User {
     _id: ID!
     email: String!
@@ -21,6 +16,7 @@ export default gql`
     title: String!
     description: String
     owner: String!
+    user: User
     createdAt: Date!
     updatedAt: Date!
   }
@@ -30,8 +26,20 @@ export default gql`
     user: User
   }
 
+  type AddNoteResponse {
+    message: String!
+    data: Note!
+  }
+
+  type Query {
+    hello: String!
+    me: User!
+    getNotes: [Note!]!
+    getSingleNote: Note!
+  }
+
   type Mutation {
-    addNote(title: String!, description: String!): Note!
+    addNote(title: String!, description: String!): AddNoteResponse!
     login(googleToken: String!): LoginResponse
   }
 `
