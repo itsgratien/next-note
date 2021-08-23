@@ -24,6 +24,7 @@ export const Home: NextPage = () => {
     HomeType.LoginVariable
   >(LOGIN, {
     onCompleted: (value) => {
+      console.log('val', value)
       if (value.login && value.login.token) {
         Cookie.set(environment.NoteToken, value.login.token)
       }
@@ -38,6 +39,8 @@ export const Home: NextPage = () => {
     if (!res.code) {
       const successResponse = res as GoogleLoginResponse
 
+      console.log('de', successResponse.getAuthResponse().access_token)
+
       login({
         variables: {
           googleToken: successResponse.getAuthResponse().access_token,
@@ -49,6 +52,10 @@ export const Home: NextPage = () => {
   }
 
   const handleOnFailureGoogleLogin = (res: any) => {}
+
+  console.log('data', data)
+
+  console.log('lod', loading)
 
   if (data || isLoggedInResponse.data?.isLoggedIn) {
     route.push('/my-notes')
@@ -70,14 +77,12 @@ export const Home: NextPage = () => {
               type="button"
               className={classnames(
                 'flex items-center justify-center',
-                renderProps.disabled || loading
-                  ? styles.loginButtonLoading
-                  : styles.loginButton
+                loading ? styles.loginButtonLoading : styles.loginButton
               )}
-              disabled={renderProps.disabled || loading}
+              disabled={loading}
               onClick={renderProps.onClick}
             >
-              <ButtonSpinner loading={renderProps.disabled || loading}>
+              <ButtonSpinner loading={loading}>
                 <LogoGoogle color="white" width="40px" height="40px" />
                 <span>Join using google</span>
               </ButtonSpinner>

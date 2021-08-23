@@ -1,9 +1,14 @@
 import passport from 'passport'
 import passportGoogle from 'passport-google-oauth-token'
+import passportJWT from 'passport-jwt'
 import { environment } from 'src/utils'
-import { UserModel } from 'src/server/Database'
+import { UserModel, UserType } from 'src/server/Database'
 
 const GoogleStrategy = passportGoogle
+
+const jwtStrategy = passportJWT.Strategy
+
+const jwtExtract = passportJWT.ExtractJwt
 
 passport.use(
   new GoogleStrategy(
@@ -30,6 +35,29 @@ passport.use(
     }
   )
 )
+
+passport.use(
+  new jwtStrategy(
+    {
+      jwtFromRequest: jwtExtract.fromAuthHeaderAsBearerToken(),
+      secretOrKey: environment.SecretKey,
+    },
+    async (payload, done) => {
+      try {
+        const findUser = await UserModel.findById(payload._id)
+
+        if (!findUser) {
+          done('User not found', null)
+        }
+
+        done(null, findUser)
+      } catch (error) {
+        done(error, null)
+      }
+    }
+  )
+)
+
 export default (req: any, res: any) => {
   return new Promise((resolve, reject) => {
     passport.authenticate('google-oauth-token', (error, data) => {
@@ -39,6 +67,22 @@ export default (req: any, res: any) => {
 
       if (data) {
         resolve(data)
+      }
+    })(req, res)
+  })
+}
+
+export const authWithPassportJwt = (req: any, res: any): Promise<UserType> => {
+  return new Promise((resolve, reject) => {
+    passport.authenticate('jwt', (error, data: UserType) => {
+      if (error) {
+        reject(error)
+      }
+
+      if (data) {
+        resolve(data)
+      } else {
+        reject('Unauthorized access')
       }
     })(req, res)
   })

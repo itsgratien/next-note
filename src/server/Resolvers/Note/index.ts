@@ -3,4 +3,4 @@ import NoteQuery from './Query'
 
 export { NoteMutation }
 export { NoteQuery }
-export * from './Type'
+export * from './Types'

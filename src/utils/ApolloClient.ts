@@ -21,4 +21,7 @@ export const cache = new InMemoryCache({
 export const client = new ApolloClient({
   uri: 'http://localhost:3000/api/graphql',
   cache,
+  headers: {
+    Authorization: Cookie.get(environment.NoteToken) || '',
+  },
 })

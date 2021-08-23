@@ -1,6 +1,6 @@
 import { ApolloError } from 'apollo-server-micro'
 import dataSource from 'src/server/Datasource'
-import { LoginArgs, Context } from './types'
+import { LoginArgs, Context } from './Types'
 
 export default {
   login: async (_: any, args: LoginArgs, context: Context) => {

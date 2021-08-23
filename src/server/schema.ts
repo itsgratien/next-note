@@ -35,7 +35,7 @@ export default gql`
     hello: String!
     me: User!
     getNotes: [Note!]!
-    getSingleNote: Note!
+    getSingleNote(noteId: String!): Note!
   }
 
   type Mutation {
