@@ -2,8 +2,17 @@ import React from 'react'
 import styles from './Header.module.scss'
 import classNames from 'classnames'
 import { SearchOutline, PowerOutline } from 'react-ionicons'
+import { client, cache, environment } from 'src/utils'
+import Cookie from 'js-cookie'
 
 const Header = () => {
+  const handleLogout = () => {
+    cache.gc()
+
+    client.resetStore()
+
+    Cookie.remove(environment.NoteToken)
+  }
   return (
     <header
       className={classNames(
@@ -34,6 +43,7 @@ const Header = () => {
             styles.logoutButton,
             'border-none outline-none focus:outline-none cursor-pointer bg-f8 flex items-center justify-center'
           )}
+          onClick={handleLogout}
         >
           <PowerOutline width="30px" height="30px" color="black" />
         </button>

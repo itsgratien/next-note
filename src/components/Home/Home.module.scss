@@ -2,13 +2,19 @@
   position: relative;
   background-color: #f8f8f8;
   button {
-    background-color: #ff0000;
     color: white;
-    border-radius: 20px;
-    padding: 0 20px;
+    border-radius: 15px;
+    padding: 0 10px;
     height: 50px;
+    width: 220px;
     span {
       margin-left: 5px;
     }
+  }
+  .loginButton {
+    background-color: #ff0000;
+  }
+  .loginButtonLoading {
+    background-color: #ff000085;
   }
 }
