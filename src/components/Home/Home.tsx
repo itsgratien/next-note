@@ -16,7 +16,7 @@ import { LOGIN, IS_LOGGED_IN } from './Types'
 import { ButtonSpinner } from 'src/components'
 import classnames from 'classnames'
 
-export const Home: NextPage<any> = (props) => {
+export const Home: NextPage = () => {
   const isLoggedInResponse = useQuery<HomeType.IsLoggedInResponse>(IS_LOGGED_IN)
 
   const [login, { loading, data }] = useMutation<
