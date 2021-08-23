@@ -9,7 +9,7 @@ import GoogleLogin, {
   GoogleLoginResponse,
   GoogleLoginResponseOffline,
 } from 'react-google-login'
-import { environment, client } from 'src/utils'
+import { environment } from 'src/utils'
 import { useMutation, useQuery } from '@apollo/client'
 import * as HomeType from './Types'
 import { LOGIN, IS_LOGGED_IN } from './Types'

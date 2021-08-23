@@ -12,6 +12,8 @@ const Header = () => {
     client.resetStore()
 
     Cookie.remove(environment.NoteToken)
+
+    window.location.href = '/'
   }
   return (
     <header
