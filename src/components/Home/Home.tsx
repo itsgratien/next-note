@@ -11,8 +11,8 @@ import GoogleLogin, {
 } from 'react-google-login'
 import { environment } from 'src/utils'
 import { useMutation, useQuery } from '@apollo/client'
-import * as HomeType from './Types'
-import { LOGIN, IS_LOGGED_IN } from './Types'
+import * as HomeType from '../../__generated__/Home'
+import { LOGIN, IS_LOGGED_IN } from '../../__generated__/Home'
 import { ButtonSpinner } from 'src/components'
 import classnames from 'classnames'
 
@@ -24,7 +24,6 @@ export const Home: NextPage = () => {
     HomeType.LoginVariable
   >(LOGIN, {
     onCompleted: (value) => {
-      console.log('val', value)
       if (value.login && value.login.token) {
         Cookie.set(environment.NoteToken, value.login.token)
       }
@@ -39,8 +38,6 @@ export const Home: NextPage = () => {
     if (!res.code) {
       const successResponse = res as GoogleLoginResponse
 
-      console.log('de', successResponse.getAuthResponse().access_token)
-
       login({
         variables: {
           googleToken: successResponse.getAuthResponse().access_token,
@@ -52,10 +49,6 @@ export const Home: NextPage = () => {
   }
 
   const handleOnFailureGoogleLogin = (res: any) => {}
-
-  console.log('data', data)
-
-  console.log('lod', loading)
 
   if (data || isLoggedInResponse.data?.isLoggedIn) {
     route.push('/my-notes')
